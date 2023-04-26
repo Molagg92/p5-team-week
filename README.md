@@ -26,6 +26,6 @@ This is a website created to showcase digital art made with the creative coding 
 * No current bugs
 
 ## License
-[MIT](https://opensource.org/license/mit/)
+[MIT](https://opensource.org/license/mit/)  
 
 Copyright (c) 2023 p5epicodusTeam

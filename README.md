@@ -18,7 +18,7 @@ This is a website created to showcase digital art made with the creative coding 
 ## Setup/Installation Requirements
 
  
-* No need to do any installs click on gh-pages link and take in the experience!
+* No need to do any installs, just click on the gh-pages link and take in the experience!
 
 
 ## Known Bugs

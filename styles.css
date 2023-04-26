@@ -1,17 +1,16 @@
 body {
     background: rgb(244, 243, 243);
-    font-family: monospace;
+    font-family: arial;
 }
 
 #header {
     font-size: 3em;
     text-align: center;
-    margin-top: 3rem;
 }
 
-#sub-header {
+.sub-header {
     text-align: center;
-    margin-top: 3rem;
+    text-decoration: underline;
 }
 
 main {
@@ -24,4 +23,30 @@ main {
 canvas {
     margin: 3rem;
     border: solid black 6px;
+}
+
+nav {
+    margin-top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h3, a {
+    text-decoration: none;
+}
+
+
+.name {
+    font-size: 4rem;
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 2rem
+}
+
+.name:hover {
+    font-size: 6rem;
 }

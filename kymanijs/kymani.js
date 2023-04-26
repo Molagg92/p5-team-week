@@ -8,21 +8,18 @@ let kymani1 = function (p) {
   let r = 255; // red component of circle color
   let g = 80; // green component of circle color
   let b = 80; // blue component of circle color
-
   p.setup = function () {
     p.createCanvas(700, 700);
     p.frameRate(40);
     p.background(255, 204, 0);
   };
-
   p.draw = function () {
-
     // Update circle position
     x += vx;
     y += vy;
     u += vx;
 
-
+    // DEFINE BORDER
     if (x + diameter / 2 > p.width || x - diameter / 2 < 0) {
       vx = -vx;
     }

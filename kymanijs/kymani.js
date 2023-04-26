@@ -98,4 +98,3 @@ let kymani2_div = document.getElementById('kymani2');
 let p5_kymani2 = new p5(kymani2, kymani2_div);
 
 
-

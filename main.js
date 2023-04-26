@@ -1,75 +1,104 @@
-// Define the sketch using instance mode
-let sketch = function (p) {
-  let angle = 0;
-  let cubeSize = 100;
+let kymani1 = function (p) {
+  let x = 75; // x-coordinate of circle
+  let y = 40; // y-coordinate of circle
+  let u = 40;
+  let vx = 5; // x-velocity of circle CHANGE THE SPEED
+  let vy = 10; // y-velocity of circle CHANGE THE SPEED
+  let diameter = 100; // diameter of circle
+  let r = 255; // red component of circle color
+  let g = 80; // green component of circle color
+  let b = 80; // blue component of circle color
 
   p.setup = function () {
-    p.createCanvas(700, 700, p.WEBGL); 
-  }; 
+    p.createCanvas(700, 700);
+    p.frameRate(40);
+    p.background(255, 204, 0);
+  };
 
   p.draw = function () {
-    p.background(200);
-    p.noStroke(); 
-    p.fill(255, 0, 0);
-    p.push();
-    p.translate(p.width / 2, p.height / 2, -cubeSize);
-    p.rotateX(angle);
-    p.rotateY(angle * 1.3);
-    p.rotateZ(angle * 0.7);
-    p.box(cubeSize);
-    p.pop();
-    angle += 0.03; 
+
+    // Update circle position
+    x += vx;
+    y += vy;
+    u += vx;
+
+
+    if (x + diameter / 2 > p.width || x - diameter / 2 < 0) {
+      vx = -vx;
+    }
+    
+    if (y + diameter / 2 > p.height || y - diameter / 2 < 0) {
+      vy = -vy;
+    }
+
+    // Update circle color when mouse is clicked
+    if (p.mouseIsPressed) {
+      // Generate random values for the red, green, and blue components
+      r = p.random(255);
+      g = p.random(255);
+      b = p.random(255);
+      vx++;
+    }
+
+    // Draw circle with updated position and color
+    p.fill(r, 0, 0);
+    p.strokeWeight(3);
+    p.ellipse(x, y, diameter, diameter);
   };
 };
 
 // Create a new p5 instance with the sketch and attach it to a container element
-let container = document.getElementById("sketch-container");
-let myP5 = new p5(sketch, container); 
-
-
-
-
+let kymani1_div = document.getElementById("kymani1");
+let p5_kymani1 = new p5(kymani1, kymani1_div);
 
 
 
 
 // NEW SKETCH
+let kymani2 = function (p) {
+  let cubes = []; // ARRAY WILL STORE POSITION COLOR AND SIZES OF EACH CUBE
 
-// Define a new sketch for a yellow floating 3D triangle
+  p.setup = function () {
+    p.createCanvas(700, 700, p.WEBGL);
+  };
 
-// let sketch2 = function(p) {
-//   let angle = 0;
-//   let triangleSize = 100;
-//   let triangleColor;
+  p.draw = function () {
+    p.background('#abdbff');
+    p.stroke(255);
+    p.strokeWeight(1);
+    // DRAW ALL PREVIOUS CUBES
+    for (let i = 0; i < cubes.length; i++) {
+      let cube = cubes[i];
+      p.push();
+      p.translate(cube.x, cube.y, cube.z);
+      p.rotateX(cube.angle.x);
+      p.rotateY(cube.angle.y);
+      p.rotateZ(cube.angle.z);
+      p.fill(cube.color);
+      p.box(cube.size);
+      p.pop();
+      // UPDATE ANGLE OF CUBE FOR FRAMES
+      cube.angle.x += p.random(0.01, 0.01);
+      cube.angle.y += p.random(0.01, 0.01);
+      cube.angle.z += p.random(0.01, 0.1);
+    }
+  };
 
-//   p.setup = function() {
-//     p.createCanvas(700, 700, p.WEBGL);
-//     triangleColor = p.color(255, 255, 0);
-//   };
+  p.mousePressed = function () {
+    // GENERATE NEW CUBES WITH VARIABLES AND ADD TO ARRAY
+    let x = p.random(-p.width / 2, p.width / 2);
+    let y = p.random(-p.height / 2, p.height / 2);
+    let z = p.random(-p.width / 2, p.width / 2);
+    let color = p.color(p.random(255), p.random(255), p.random(255));
+    let size = p.random(50, 100);
+    let angle = { x: p.random(p.TWO_PI), y: p.random(p.TWO_PI), z: p.random(p.TWO_PI) };
+    cubes.push({ x: x, y: y, z: z, color: color, size: size, angle: angle });
+  };
+};
 
-//   p.draw = function() {
-//     p.background(200);
-//     p.noStroke();
-//     p.fill(triangleColor);
-//     p.push();
-//     p.translate(p.width/2, p.height/2, -triangleSize);
-//     p.rotateX(angle);
-//     p.rotateY(angle*1.3);
-//     p.rotateZ(angle*0.7);
-//     p.triangle(-triangleSize/2, triangleSize/2, triangleSize/2, triangleSize/2, 0, -triangleSize/2);
-//     p.pop();
-//     angle += 0.03;
-//   };
+// Create a new p5 instance with the sketch and attach it to a container element
+let kymani2_div = document.getElementById('kymani2');
+let p5_kymani2 = new p5(kymani2, kymani2_div);
 
-//   // Set the triangle color based on a parameter passed to the function
-//   p.setColor = function(r, g, b) {
-//     triangleColor = p.color(r, g, b);
-//   };
-// };
-
-// // Create a new p5 instance with the second sketch and attach it to a container element
-// let container3 = document.getElementById("sketch-container-3");
-// let myP5_3 = new p5(sketch2, container3);
-// myP5_3.setColor(255, 255, 0); // Set the triangle color to yellow
 
 

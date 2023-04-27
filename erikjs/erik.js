@@ -1,24 +1,38 @@
-// Define the sketch using instance mode
-let sketch = function (p) {
+let x, y;
+let angle = 0.3
+let count = 0;
 
+const sketch = function (p) {
     p.setup = function () {
-        p.createCanvas(700, 700);
-        p.x = p.width / 2;
-        p.y = p.height / 2;
-        p.background(220);
+        p.createCanvas(700, 700, p.WEBGL);
+        x = p.width / 2;
+        y = p.height / 2;
+        p.background(0);
     }
 
     p.draw = function () {
-        p.x = p.random(0, p.width);
-        p.y = p.random(0, p.height);
-        p.d = p.random(10, 50);
-        let colorX = p.map(p.x, 0, p.width, 0, 255);
-        let colorY = p.map(p.y, 0, p.height, 0, 255);
-        p.fill(colorX, colorY, 0);
-        p.rect(p.x, p.y, p.d, p.d);
-    }
-};
+        count += 1;
+        if (count === 255) {
+            count = 30;
+        }
+        if (p.mouseIsPressed === true) {
+            if (p.mouseButton === p.LEFT) {
+                p.fill(count * 2, 0, count * 2);
+            }
+            if (p.mouseButton === p.CENTER) {
+                p.fill(0, count * 2, count * 2);
+            }
+        } else {
+            p.fill(count * 2, 0, 0)
+        }
 
-// Create a new p5 instance with the sketch and attach it to a container element
+        p.translate(p.mouseX - p.width / 2, p.mouseY - p.height / 2, p.mouseY)
+        p.rectMode(p.CENTER);
+        p.rotateX(p.frameCount * .02)
+        p.rotateY(p.frameCount * .02)
+        p.box(50, 50, 50);
+    }
+}
+
 let container = document.getElementById("sketch-container");
 let myP5 = new p5(sketch, container);

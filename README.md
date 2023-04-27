@@ -13,7 +13,8 @@
 
 ## Description
 
-This is a website created to showcase digital art made with the creative coding library p5.js
+This is a website created to showcase digital art made with the creative coding library p5.js.
+Click on the Exhibit links to navigate to each art piece.
 
 ## Setup/Installation Requirements
 

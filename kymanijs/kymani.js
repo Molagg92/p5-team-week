@@ -93,7 +93,6 @@ let kymani2 = function (p) {
   };
 };
 
-// Create a new p5 instance with the sketch and attach it to a container element
 let kymani2_div = document.getElementById('kymani2');
 let p5_kymani2 = new p5(kymani2, kymani2_div);
 

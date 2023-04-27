@@ -10,7 +10,7 @@ let kymani1 = function (p) {
   let b = 80; // blue component of circle color
   p.setup = function () {
     p.createCanvas(700, 700);
-    p.frameRate(40);
+    p.frameRate(30);
     p.background(255, 204, 0);
   };
   p.draw = function () {
@@ -61,7 +61,7 @@ let kymani2 = function (p) {
 
   p.draw = function () {
     p.background('#abdbff');
-    p.stroke(255);
+    p.stroke(0);
     p.strokeWeight(1);
     // DRAW ALL PREVIOUS CUBES
     for (let i = 0; i < cubes.length; i++) {

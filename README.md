@@ -2,7 +2,7 @@
 
 #### A digital art gallery for p5.js
 
-#### By Kymani, Raed, Brandon, Erik and Hernan 
+#### By Kymani Stephens, Raed Alkhanbashi, Brandon Morgan, Erik Zambrano and Hernan Verar loma
 
 ## Technologies Used
 

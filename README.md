@@ -9,7 +9,7 @@
 * HTML
 * CSS
 * Javascript
-* p5.js
+* p5.js 
 
 ## Description
 

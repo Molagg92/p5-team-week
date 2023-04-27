@@ -18,7 +18,9 @@ This is a website created to showcase digital art made with the creative coding 
 ## Setup/Installation Requirements
 
  
-* No need to do any installs, just click on the gh-pages link and take in the experience!
+No need to do any installs, just click on the gh-pages link and take in the experience!
+* Alternatively, fork and clone this repo to your desktop
+* Open locally with live server
 
 
 ## Known Bugs
